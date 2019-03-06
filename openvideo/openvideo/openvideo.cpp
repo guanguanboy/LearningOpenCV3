@@ -8,9 +8,14 @@ int main(int argc, char** argv)
 {
 	namedWindow("OpenvideoDemo", WINDOW_AUTOSIZE);
 	VideoCapture cap;
-	string videoName = string("VID_20190124_155232.mp4");
-	cap.open(videoName);
+	//string videoName = string("../saveVideo/my_video.avi");
+	cap.open("../saveVideo/my_video.avi");
 	Mat frame;
+
+	if (cap.isOpened() == false)
+	{
+		return 0;
+	}
 
 	while (true)
 	{

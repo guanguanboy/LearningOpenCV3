@@ -9,15 +9,22 @@ int main(int argc, char* argv[])
 
 	namedWindow("logpolar", WINDOW_AUTOSIZE);
 
-	VideoCapture capture(argv[1]);
+	VideoCapture capture;
 
-	double fps = capture.get(CAP_PROP_FPS);
+	capture.open(0);
+
+	if (capture.isOpened() == false)
+	{
+		return 0;
+	}
+
+	//double fps = capture.get(CAP_PROP_FPS);
 
 	Size size((int)capture.get(CAP_PROP_FRAME_WIDTH), (int)capture.get(CAP_PROP_FRAME_HEIGHT));
 
 	VideoWriter writer;
 
-	writer.open(argv[2], CV_FOURCC('M', 'J', 'P', 'G'), fps, size);
+	writer.open("my_video.avi", CV_FOURCC('M', 'J', 'P', 'G'), 30, size);
 
 	Mat log_polarFrame, bgr_frame;
 
