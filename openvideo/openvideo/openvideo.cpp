@@ -9,8 +9,12 @@ int main(int argc, char** argv)
 	namedWindow("OpenvideoDemo", WINDOW_AUTOSIZE);
 	VideoCapture cap;
 	//string videoName = string("../saveVideo/my_video.avi");
-	cap.open("../saveVideo/my_video.avi");
+	cap.open("../saveVideo/color_benchuan.avi");
 	Mat frame;
+
+	int fps = cap.get(CV_CAP_PROP_FPS);
+
+	printf("fps = %d\n", fps);
 
 	if (cap.isOpened() == false)
 	{
