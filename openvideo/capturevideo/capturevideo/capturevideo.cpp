@@ -59,6 +59,9 @@ int main(int argc, char ** argv)
 
 		std::cout << "frame width =" << frame.cols << ", frame height =" << frame.rows << std::endl;
 
+		int type = frame.type();
+		std::cout << "frame type =" << type << std::endl;
+
 		imshow("CaptureVideo", frame);
 
 		detectFace(faceDetector, frame, faceRect);

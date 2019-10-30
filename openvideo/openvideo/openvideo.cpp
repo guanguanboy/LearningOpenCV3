@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	namedWindow("OpenvideoDemo", WINDOW_AUTOSIZE);
 	VideoCapture cap;
 	//string videoName = string("../saveVideo/my_video.avi");
-	cap.open("../saveVideo/color_benchuan.avi");
+	cap.open("../saveVideo/depth.avi");
 	Mat frame;
 
 	int fps = cap.get(CV_CAP_PROP_FPS);

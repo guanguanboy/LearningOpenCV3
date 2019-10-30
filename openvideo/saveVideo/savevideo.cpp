@@ -3,7 +3,7 @@
 
 using namespace cv;
 
-#if 0
+#if 1
 int main(int argc, char* argv[])
 {
 	namedWindow("Example2_11", WINDOW_AUTOSIZE);
@@ -25,8 +25,14 @@ int main(int argc, char* argv[])
 
 	VideoWriter writer;
 
-	writer.open("my_video.avi", CV_FOURCC('M', 'J', 'P', 'G'), 30, size);
-
+	try
+	{
+		writer.open("my_video.avi", CV_FOURCC('M', 'J', 'P', 'G'), 30, size);
+	}
+	catch (cv::Exception e)
+	{
+		std::cout << e.msg << std::endl;
+	}
 	Mat log_polarFrame, bgr_frame;
 
 	while (true)
@@ -61,6 +67,7 @@ int main(int argc, char* argv[])
 
 #endif
 
+#if 0
 int main()
 {
 	Mat src_img = imread("color_0.jpg");//imread()º¯ÊýÔØÈëÍ¼Ïñ
@@ -82,3 +89,5 @@ int main()
 	system("pause");
 	return 0;
 }
+
+#endif
